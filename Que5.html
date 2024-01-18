@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Electronic Devices Information</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }      
+        .device-link {
+            display: block;
+            padding: 10px;
+            margin: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .device-link:hover {
+            background-color: #031522;
+        }
+    </style>
+    <script>
+        function showDeviceDetails(deviceName) {
+            var deviceDetails = getDeviceDetails(deviceName);
+
+            var iframe = document.getElementById('deviceDetails');
+            iframe.srcdoc = deviceDetails;
+            iframe.style.display = 'block';
+        }
+
+        function getDeviceDetails(deviceName) {
+            var details = {
+                'Mobile Phone': 'This is a mobile phone. It has a touch screen, camera, and various apps.',
+                'Laptop': 'A laptop is a portable computer with a keyboard and display. It is suitable for on-the-go computing.',
+                'Desktop': 'A desktop computer is a personal computer designed for use at a single location. It typically has a larger display and more powerful components.'
+            };
+
+            return details[deviceName];
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a class="device-link" onclick="showDeviceDetails('Mobile Phone')">Mobile Phone</a>
+        <a class="device-link" onclick="showDeviceDetails('Laptop')">Laptop</a>
+        <a class="device-link" onclick="showDeviceDetails('Desktop')">Desktop</a>
+        <iframe id="deviceDetails" style="display:none; width: 100%; height: 300px; margin-top: 20px; border: 2px solid #0e0d0d;"></iframe>
+    </div>    
+</body>
+</html>
